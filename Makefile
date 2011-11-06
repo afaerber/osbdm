@@ -9,8 +9,8 @@ DGFLAGS = -MMD -MP -MT $@
 
 -include osbdm-test.d
 
-osbdm-test: main.c
-	$(CC) -o $@ $(CPPFLAGS) $(DGFLAGS) $(CFLAGS) main.c $(LDFLAGS) -lusb-1.0
+osbdm-test: main.c osbdm.c
+	$(CC) -o $@ $(CPPFLAGS) $(DGFLAGS) $(CFLAGS) main.c osbdm.c $(LDFLAGS) -lusb-1.0
 
 test: osbdm-test
 	./osbdm-test

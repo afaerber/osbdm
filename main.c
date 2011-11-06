@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <libusb-1.0/libusb.h>
 #include "qorivva.h"
+#include "osbdm.h"
 
 static libusb_device_handle *osbdm_open(libusb_context *usb_context)
 {
@@ -46,6 +47,10 @@ static void osbdm_close(libusb_device_handle *handle)
 
 static void test(libusb_device_handle *handle)
 {
+    uint16_t version;
+    int ret = osbdm_get_version(handle, &version);
+    if (ret != 0)
+        return;
 }
 
 static void connect(libusb_context *usb_context)
